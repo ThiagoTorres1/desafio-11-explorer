@@ -13,27 +13,30 @@
 
 html, body, input {
   font-family: 'Mulish', sans-serif;
-}
-
-body {
   font-size: 1.6rem;
-}
-
-#app {
-  display: grid;
 }
 
 .container {
   padding: 1.6rem 2.4rem;
 }
 
-/* header */
+.content {
+  width: min(38.2rem, 100%);
+  margin-inline: auto;
+  margin-top: 3.2rem;
+}
+
+img {
+  width: 100%;
+}
+
+/* HEADER CONFIG */
 
 header {
-  background: #065E7C;
   display: flex;
   align-items: center;
   gap: 2.4rem;
+  background-color: #065E7C;
 }
 
 header form {
@@ -50,22 +53,18 @@ header form {
 .input-wrapper input {
   width: 100%;
   padding: 1.2rem 1.6rem;
+  border: none;
   border-radius: .4rem;
   background: rgba(255, 255, 255, 0.20);
-  border: none;
   color: #FFF;
   font-weight: 600;
-  font-size: 1.6rem;
+  line-height: 100%;
 }
 
 .input-wrapper input::placeholder {
   color: #FFF;
-  font-size: 1.6rem;
   font-weight: 600;
-}
-
-header .avatar img {
-  width: 100%;
+  line-height: 100%;
 }
 
 header .avatar {
@@ -75,19 +74,13 @@ header .avatar {
   overflow: hidden;
 }
 
-/* main content */
+/* MAIN CONFIG */
 
-.content, aside {
-  width: min(38rem, 100%);
-  margin-inline: auto;
-}
-
-.title h1 {
-  color: #202024;
+.title h1, h2 {
+  color:  #202024;
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 160%;
-  margin-top: 1.6rem;
 }
 
 .feedback {
@@ -99,96 +92,89 @@ header .avatar {
 .feedback .like, .feedback .deslike {
   display: flex;
   align-items: center;
-  padding: 1.2rem;
+  padding: 12px;
+  background-color: #065E7C;
   border-radius: 50%;
-  background: #065E7C;
-}
-
-.feedback + p {
-  margin-top: 3.2rem;
 }
 
 main p {
   color: #121214;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 160%;
+}
+
+main div + p {
+  margin-top: 3.2rem;
 }
 
 main p + p {
   margin-top: 1.2rem;
 }
 
-.hero-banner img {
-  width: 100%;
-  display: block;
-}
-
-/* aside content */
+/* ASIDE CONFIG */
 .gallery {
-  margin-block: 3.2rem;
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
 }
 
-
 .item {
   display: flex;
-  gap: 1.6rem;
   align-items: center;
+  gap: 1.6rem;
 }
 
 .item img {
   width: 15.1rem;
   height: 8.4rem;
+  object-fit: cover;
+  display: block;
 }
 
-.item h3 {
-  color: #202024;
+figcaption h3 {
+  color:#202024;
   font-size: 1.8rem;
+  font-style: normal;
   font-weight: 700;
   line-height: 160%;
 }
 
-.item p {
-  color: #121214;
+figcaption p {
+  color:#121214;
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 160%;
 }
 
-/* footer */
+/* FOOTER CONFIG */
 footer {
-  background: #387E96;
+  background-color: #387E96;
   text-align: center;
+  margin-top: 3.2rem;
+}
+
+footer p {
   color: #FFF;
   font-weight: 600;
 }
 
-@media (min-width: 1120px) {
+/* DESKTOP CONFIG */
+
+@media (min-width: 1140px) {
+  .content {
+    width: 100%;
+    margin: 0;
+  }
+
+  .container {
+    padding: 1.6rem 11.2rem;
+  }
+
   #app {
+    display: grid;
     grid-template-areas: 
     'header header header'
     'main main aside'
     'footer footer footer';
     gap: 4rem 3.2rem;
-  }
-
-  .container {
-    padding-inline: 11.2rem;
-  }
-
-  .content, aside {
-    margin: 0;
-  }
-
-  .content {
-    width: min(80rem, 100%);
-  }
-
-  aside {
-    width: min(38.4rem, 100%);
   }
 
   header {
@@ -197,25 +183,32 @@ footer {
 
   main {
     grid-area: main;
-    width: min(80rem, 100%);
-    padding-left: 11.2rem;
+    margin-left: 11.2rem;
   }
 
   .hero-banner img {
     border-radius: .5rem;
   }
 
-  main .title {
+  .title {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin-block: 3.2rem;
+    margin-top: 3.2rem;
+  }
+
+  .feedback {
+    margin-top: 0;
   }
 
   aside {
     grid-area: aside;
+    margin-right: 11.2rem;
+    max-width: 38.4rem;
   }
 
   footer {
     grid-area: footer;
+    margin-top: 0;
   }
 }
